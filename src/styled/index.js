@@ -14,7 +14,7 @@ export const HomeView = styled(BaseView)`
 
 `
 
-export const BrewerView = styled(BaseView)`
+export const BreweryView = styled(BaseView)`
   background-color: goldenrod;
 `
 

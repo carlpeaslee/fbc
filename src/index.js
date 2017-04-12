@@ -16,14 +16,37 @@ const breweries = [
   'BlackStack'
 ]
 
+
+const breweryRoutes = () => {
+  let routes = {}
+  breweries.forEach( (brewery) => {
+    routes = {
+      ...routes,
+      [brewery]: {
+        name: brewery,
+        screen: () => {
+          return (
+            <Brewery
+              name={brewery}
+            />
+          )
+        }
+      }
+    }
+  })
+  return routes
+}
+
 const RouteConfigs = {
   Home: {
     name: 'Home',
     screen: Home
   },
-  Brewery: {
-    screen: Brewery
-  }
+  ...breweryRoutes()
+}
+
+Drawer.navigationOptions = {
+  title: 'Menu'
 }
 
 const DrawerNavigatorConfigs = {

@@ -12,10 +12,15 @@ export default class Drawer extends Component {
 
     return (
       <DrawerView>
-        <Button
-          title="test"
-          onPress={()=>{console.log("this.props", this.props)}}
-        />
+        {this.props.navigation.state.routes.map(route => {
+          return (
+            <Button
+              key={route.key}
+              title={route.routeName}
+              onPress={()=>{this.props.navigation.navigate(route.routeName)}}
+            />
+          )
+        })}
       </DrawerView>
     )
   }
